@@ -1,53 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ReviewHub - Grow With Trusted Reviews</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReviewHub - SaaS Platform</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+* {
+  max-width: 100%;
+}
+html { scroll-behavior: smooth; }
+
+/* Hide scrollbar but keep scroll */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* smooth animations */
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow p-4 flex justify-between">
-    <h1 class="text-xl font-bold">ReviewHub</h1>
-    <div class="space-x-6">
-      <a href="index.html">Home</a>
-      <a href="marketplace.html">Marketplace</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="dashboard.html" class="bg-blue-600 text-white px-4 py-2 rounded">Dashboard</a>
-    </div>
-  </nav>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
 
-  <!-- Hero -->
-  <section class="text-center py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Boost Your Brand With Real Reviews</h2>
-    <p class="mb-6">Connect with verified reviewers and scale your online presence.</p>
-    <a href="marketplace.html" class="bg-white text-blue-600 px-6 py-3 rounded font-semibold">
-      Explore Marketplace
-    </a>
-  </section>
+<nav class="bg-white/80 backdrop-blur-md shadow-md fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
 
-  <!-- Features -->
-  <section class="py-16 px-10 grid md:grid-cols-3 gap-8">
-    <div class="bg-white p-6 rounded shadow">
-      <h3 class="font-bold mb-2">Verified Reviewers</h3>
-      <p>Quality-focused review contributors.</p>
-    </div>
-    <div class="bg-white p-6 rounded shadow">
-      <h3 class="font-bold mb-2">Secure Payments</h3>
-      <p>Transparent pricing and protected transactions.</p>
-    </div>
-    <div class="bg-white p-6 rounded shadow">
-      <h3 class="font-bold mb-2">Fast Turnaround</h3>
-      <p>Quick delivery and real-time order tracking.</p>
-    </div>
-  </section>
+    <h1 class="text-xl font-bold text-blue-600">ReviewHub</h1>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center p-6">
-    © 2026 ReviewHub by SRS. All rights reserved.
-  </footer>
+    <!-- Desktop -->
+    <div class="hidden md:flex space-x-6 text-sm font-medium">
+      <a href="#home">Home</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
+      <a href="#dashboard" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Dashboard</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button id="menuBtn" class="md:hidden text-2xl">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white px-6 pb-4 space-y-4">
+    <a href="#home" class="block">Home</a>
+    <a href="#marketplace" class="block">Marketplace</a>
+    <a href="#pricing" class="block">Pricing</a>
+    <a href="#how" class="block">How It Works</a>
+    <a href="#dashboard" class="block text-blue-600 font-semibold">Dashboard</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="pt-28 pb-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+        Scale Your Brand With Verified Reviews
+      </h2>
+      <p class="mt-4 text-white/80">
+        A performance-driven marketplace connecting businesses with trusted review contributors.
+      </p>
+
+      <div class="mt-6 flex gap-4">
+        <a href="#marketplace" class="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold">
+          Explore
+        </a>
+        <a href="#pricing" class="border border-white px-6 py-3 rounded-xl">
+          Pricing
+        </a>
+      </div>
+    </div>
+
+    <div class="hidden md:block bg-white/10 p-6 rounded-2xl backdrop-blur-lg border border-white/20">
+      <p class="text-sm text-white/70">Live Performance Dashboard</p>
+      <div class="mt-4 space-y-3">
+        <div class="bg-white/20 p-3 rounded-lg">Orders Processing: 128</div>
+        <div class="bg-white/20 p-3 rounded-lg">Completion Rate: 94%</div>
+        <div class="bg-white/20 p-3 rounded-lg">Active Reviewers: 2,400+</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="marketplace" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+  <h2 class="text-3xl font-bold text-center mb-12">Marketplace</h2>
+
+  <!-- MOBILE: Horizontal Scroll -->
+  <div class="flex gap-4 overflow-x-auto pb-4 md:hidden">
+
+    <div class="min-w-[80%] bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">Amazon Review</h3>
+      <p class="text-gray-500 mt-2">CHF 5 per review</p>
+      <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl">Order</button>
+    </div>
+
+    <div class="min-w-[80%] bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">Google Review</h3>
+      <p class="text-gray-500 mt-2">CHF 5 per review</p>
+      <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl">Order</button>
+    </div>
+
+    <div class="min-w-[80%] bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">App Store Review</h3>
+      <p class="text-gray-500 mt-2">CHF 10 per review</p>
+      <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl">Order</button>
+    </div>
+
+  </div>
+
+  <!-- DESKTOP GRID -->
+  <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">Amazon Review</h3>
+      <p class="text-gray-500 mt-2">CHF 5 per review</p>
+      <a href="mailto:reviewhubprofessional@gmail.com?subject=New Order Request&body=Hello ReviewHub,%0A%0AI want to order:%0AService: Amazon Review%0AQuantity:%0A%0APlease contact me."
+class="mt-4 w-full block text-center bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition">
+Order Now
+</a>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">Google Review</h3>
+      <p class="text-gray-500 mt-2">CHF 5 per review</p>
+      <a href="mailto:reviewhubprofessional@gmail.com?subject=New Order Request&body=Hello ReviewHub,%0A%0AI want to order:%0AService: Google Review%0AQuantity:%0A%0APlease contact me."
+class="mt-4 w-full block text-center bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition">
+Order Now
+</a>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">
+      <h3 class="font-bold text-lg">App Store Review</h3>
+      <p class="text-gray-500 mt-2">CHF 10 per review</p>
+      <a href="mailto:reviewhubprofessional@gmail.com?subject=New Order Request&body=Hello ReviewHub,%0A%0AI want to order:%0AService: App Store Review%0AQuantity:%0A%0APlease contact me."
+class="mt-4 w-full block text-center bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700 transition">
+Order Now
+</a>
+    </div>
+
+  </div>
+
+  <p class="text-center text-md text-gray-700 mt-8">
+  Need custom orders? Contact: reviewhubprofessional@gmail.com
+</p>
+
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="py-20 bg-gray-100 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Pricing Plans</h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+    <div class="bg-white p-8 rounded-2xl shadow card-hover text-center">
+      <h3 class="font-bold">Starter</h3>
+      <p class="text-3xl font-bold my-4">$50</p>
+      <p class="text-gray-500">5 Reviews</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-2xl shadow card-hover text-center">
+      <h3 class="font-bold">Growth</h3>
+      <p class="text-3xl font-bold my-4">$120</p>
+      <p class="text-gray-500">15 Reviews</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-2xl shadow card-hover text-center">
+      <h3 class="font-bold">Pro</h3>
+      <p class="text-3xl font-bold my-4">$200</p>
+      <p class="text-gray-500">30 Reviews</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="py-20 max-w-5xl mx-auto px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+
+  <div class="space-y-6">
+
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">1. Create Account</div>
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">2. Choose Service</div>
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">3. Track Progress</div>
+    <div class="bg-white p-6 rounded-2xl shadow card-hover">4. Get Results</div>
+
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="py-20 bg-gray-100 px-6">
+  <h2 class="text-3xl font-bold text-center mb-12">Dashboard Preview</h2>
+
+  <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow">
+
+    <div class="flex justify-between">
+      <h3 class="font-bold">Wallet Balance</h3>
+      <span class="text-green-600 font-bold">$245.00</span>
+    </div>
+
+    <hr class="my-6">
+
+    <div class="space-y-3 text-sm">
+      <div class="flex justify-between"><span>Amazon Review</span><span class="text-yellow-600">Processing</span></div>
+      <div class="flex justify-between"><span>Google Review</span><span class="text-green-600">Completed</span></div>
+      <div class="flex justify-between"><span>App Review</span><span class="text-red-600">Pending</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white text-center py-8">
+  <p>© 2026 ReviewHub. Built for scale.</p>
+
+  <p class="mt-2 text-lg text-gray-400">
+    Contact: reviewhubprofessional@gmail.com
+  </p>
+
+  <p class="mt-1 text-xs text-gray-500">
+    Business inquiries only
+  </p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+// toggle menu
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  mobileMenu.classList.toggle("hidden");
+});
+
+// close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+    mobileMenu.classList.add("hidden");
+  }
+});
+
+// close when clicking any link
+document.querySelectorAll("#mobileMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+});
+</script>
 
 </body>
 </html>
